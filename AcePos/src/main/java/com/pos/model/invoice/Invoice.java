@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pos.model;
+package com.pos.model.invoice;
 
 /**
  *
- * @author Arif
+ * @author 108156
  */
-public class StockService {
+public class Invoice {
     
 }
