@@ -7,9 +7,15 @@ package com.pos.model.customers;
 import com.pos.model.persons.Person;
 import java.io.Serializable;
 import java.util.List;
+import javax.inject.Inject;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,52 +25,55 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Entity(name = "Customers")
 @Transactional
-public class Customer extends Person implements Serializable {
+public class Customer implements Serializable {
 
     public static String CUSTOMERID = "CUSTOMERID";
     public static String PERSONID = "PERSONID";
     public static String REFERANCE = "REFERANCE";
-    public static String TYPE = "TYPE";
+    public static String TYPEOFCUSTOMER = "TYPEOFCUSTOMER";
     
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
+    private int personId;
     private String reference;
-    private String type;
+    @Column(name="typeofcustomer")
+    private String typeOfCustomer;
     
-    public Customer(SessionFactory factory) {
-        System.err.println("Overloaded constructor called for Customer's" +factory);
-        this.factory = factory;
-    }
+    protected  SessionFactory factory;
     
     public Customer() {
-        System.err.println("Customer's constructor called ");
+        System.err.println("Overloaded constructor called for Customer's" +factory);
+        
     }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
+
     
     
-
-    public SessionFactory getFactory() {
-        return factory;
-    }
-
-    @Autowired
-    public void setFactory(SessionFactory factory) {
-        System.err.println("Setting session factory to "+factory);
-        this.factory = factory;
-    }
-
     /**
      * Gets a list of all customers
      * 
      * @return 
      */
     public List<Customer> getCustomers() {
+        this.factory = HibernateUtil.getSessionFactory();
         List<Customer> list = null;
         if (factory == null) {
             System.out.println("Session factory not populated properly");
             return null;
         } else {
             System.out.println("Session factory not populated successfully");
-            list = factory.getCurrentSession().createQuery("* from Customers").list();
+            Transaction tx = this.factory.getCurrentSession().beginTransaction();
+            list = factory.getCurrentSession().createQuery(" from Customers ").list();
+            tx.commit();
+            this.factory.getCurrentSession().close();
         }
         
         return list;
@@ -128,27 +137,29 @@ public class Customer extends Person implements Serializable {
         this.reference = reference;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" + "customerId=" + customerId + "reference=" + reference + "type=" + type + '}';
-    }
-
+   
+   
     public static String getCommaSeparatedStrOfCustomerColumns() {
-        return CUSTOMERID + ", " + PERSONID + ", " + REFERANCE + ", " + TYPE;
+        return CUSTOMERID + ", " + PERSONID + ", " + REFERANCE + ", " + TYPEOFCUSTOMER;
     }
 
     public static String getCommaSeparatedStrOfCustomersColumnsForUpdateQuery() {
-        String tempStr = REFERANCE + "=?, " + TYPE + "=?";
+        String tempStr = REFERANCE + "=?, " + TYPEOFCUSTOMER + "=?";
 
         return tempStr;
     }
 
+    public String getTypeOfCustomer() {
+        return typeOfCustomer;
+    }
+
+    public void setTypeOfCustomer(String typeOfCustomer) {
+        this.typeOfCustomer = typeOfCustomer;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" + "customerId=" + customerId + ", reference=" + reference + ", typeOfCustomer=" + typeOfCustomer + ", factory=" + factory + '}';
+    }
+    
 }

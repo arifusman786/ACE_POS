@@ -5,6 +5,8 @@
 
 package com.pos.model.items;
 
+import org.hibernate.SessionFactory;
+
 
 /**
  *
@@ -37,6 +39,15 @@ public class Item {
     private float unitTotalPrice;
     private String unitSize;
 
+    public Item(SessionFactory factory) {
+        System.err.println("--------------------Item's session factory constructor called");
+    }
+
+    public Item() {
+                System.err.println("+++++++++++++++Item's no-argument constructor called");
+    }
+
+    
     public float getUnitTotalPrice() {
         return unitTotalPrice;
     }

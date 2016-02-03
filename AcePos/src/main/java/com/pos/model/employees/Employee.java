@@ -10,6 +10,7 @@ import com.pos.model.persons.Person;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,16 +19,18 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author Arif Usman
  */
 @Entity(name="Employees")
-public class Employee extends Person implements Serializable{
+public class Employee implements Serializable{
     public static String EMPLOYEEID="EMPLOYEEID";
     public static String PERSONID="PERSONID";
     public static String DESIGNATION="DESIGNATION";
     public static String USERNAME="USERNAME";
     public static String PASSWORD="PASSWORD";
 
+    @Id
     private int employeeID;
     private int personID;
     private String designation;
+    protected  SessionFactory factory;
 
     public List<Employee> getEmployees() {
         List<Employee> list = null;
@@ -80,16 +83,6 @@ public class Employee extends Person implements Serializable{
         }
         
         return employee;
-    }
-    
-    public SessionFactory getFactory() {
-        return factory;
-    }
-
-    @Autowired
-    public void setFactory(SessionFactory factory) {
-        System.err.println("Setting session factory to "+factory);
-        this.factory = factory;
     }
     
     public String getDesignation() {

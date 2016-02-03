@@ -30,7 +30,7 @@ public class LoginController {
     {
         System.out.println("***********************************Handler called------------------------------");
         Customer cust = new Customer();
-        cust.setFirstName("Muhammad");
+        //cust.setFirstName("Muhammad");
         List<Customer> list = cust.getCustomers();
         System.err.println("list of customers = "+list);
         return "main";

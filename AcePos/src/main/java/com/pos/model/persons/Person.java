@@ -18,8 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author Arif
  */
-@Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class Person implements Serializable {
+@Entity(name="Persons") @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Person implements Serializable {
     public static String PERSONID="PERSONID";
     public static String FIRSTNAME="FIRSTNAME";
     public static String LASTNAME="LASTNAME";
@@ -30,11 +30,7 @@ public abstract class Person implements Serializable {
     public static String MOBILENO="MOBILENO";
     public static String ADDRESS="ADDRESS";
      
-    
-    protected  SessionFactory factory;
-    protected abstract SessionFactory getFactory();
-    protected abstract void setFactory(SessionFactory factory);
-    
+     
 
     @Id
     private int personId;

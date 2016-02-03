@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package modelclasses;
+package com.pos.model.orders;
 
 /**
  *
