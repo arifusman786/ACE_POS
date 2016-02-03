@@ -5,11 +5,21 @@
 
 package com.pos.model.persons;
 
+
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Arif
  */
-public class Person {
+@Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Person implements Serializable {
     public static String PERSONID="PERSONID";
     public static String FIRSTNAME="FIRSTNAME";
     public static String LASTNAME="LASTNAME";
@@ -19,7 +29,14 @@ public class Person {
     public static String PHONENO="PHONENO";
     public static String MOBILENO="MOBILENO";
     public static String ADDRESS="ADDRESS";
+     
+    
+    protected  SessionFactory factory;
+    protected abstract SessionFactory getFactory();
+    protected abstract void setFactory(SessionFactory factory);
+    
 
+    @Id
     private int personId;
     private String firstName;
     private String lastName;
@@ -32,6 +49,14 @@ public class Person {
     private String mobileNo;
     private String address;
 
+    public Person() {
+        System.err.println("Person's constructor");
+    
+    }
+
+    
+   
+    
     public String getAddress() {
         return address;
     }

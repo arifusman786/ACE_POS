@@ -6,6 +6,8 @@
 package com.pos.controllers;
 
 
+import com.pos.model.customers.Customer;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +29,10 @@ public class LoginController {
     public String main(Model model)
     {
         System.out.println("***********************************Handler called------------------------------");
+        Customer cust = new Customer();
+        cust.setFirstName("Muhammad");
+        List<Customer> list = cust.getCustomers();
+        System.err.println("list of customers = "+list);
         return "main";
     }
     

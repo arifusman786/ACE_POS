@@ -18,7 +18,7 @@ public class FullCustomerInformation {
 
     public FullCustomerInformation() {
         customer = new Customer();
-        person = new Person();
+       //person = new Person();
     }
 
     public Customer getCustomer() {
