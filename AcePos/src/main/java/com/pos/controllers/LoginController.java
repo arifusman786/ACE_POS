@@ -40,5 +40,16 @@ public class LoginController {
     {
         return "bills";
     }
+        @RequestMapping(value="login")
+    public String login(Model model)
+    {
+        return "login";
+    }
     
+    @RequestMapping(value="employeeadd")
+    public String employee(Model model)
+    {
+        return "employeeadd";
+    }
+     
 }

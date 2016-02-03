@@ -9,10 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Bills</title>
         <link href="<d:url value="/resources/theme1/css/mainstyle.css" />" rel="stylesheet">
-        <link href="<d:url value="/resources/theme1/css/menustyle.css" />" rel="stylesheet">
-    </head>
     <body>
         <h1>Hello World!</h1>
     </body>

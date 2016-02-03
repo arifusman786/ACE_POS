@@ -23,6 +23,22 @@
         <div id='cssmenu'>
             <ul>
                 <li><a href='#'><span>Home</span></a></li>
+                <li class='active has-sub'><a href='#'><span>Employee</span></a>
+                    <ul>
+                        <li><a href='employeeadd'><span>Add</span></a>
+                        </li>
+                        <li><a href='#'><span>Update</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class='active has-sub'><a href='#'><span>Customer</span></a>
+                    <ul>
+                        <li><a href=''><span>Add</span></a>
+                        </li>
+                        <li><a href='#'><span>Update</span></a>
+                        </li>
+                    </ul>
+                </li>
                 <li class='active has-sub'><a href='#'><span>Bills</span></a>
                     <ul>
                         <li><a href='bills'><span>Add</span></a>

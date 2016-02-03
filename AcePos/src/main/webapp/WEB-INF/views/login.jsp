@@ -4,14 +4,30 @@
     Author     : nizomiddin
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<div>
+
+    <div class="panel-body">
+        <form action="postLogin" method="post">
+            <fieldset>
+                <legend>Please sign in</legend>
+
+                <form:errors path="*" cssClass="alert alert-danger" element="div" />
+
+                <div class="form-group">
+                    <input class="form:input-large" placeholder="User Name"
+                           name='username' type="text">
+                </div>
+                <div class="form-group">
+                    <input class=" form:input-large" placeholder="Password"
+                           name='password' type="password" value="">
+                </div>
+                <input class="btn" type="submit"
+                       value="Login">
+            </fieldset>
+        </form>
+    </div>
+</div>
