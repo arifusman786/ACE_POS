@@ -8,10 +8,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>header</title>
+        <title>Section</title>
     </head>
-        
     <body>
-        <h1>Header!</h1>
+        This is a section
     </body>
 </html>
