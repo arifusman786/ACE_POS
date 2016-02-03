@@ -11,7 +11,7 @@
 <div>
 
     <div class="panel-body">
-        <form action="postLogin" method="post">
+        <form action="main" method="post">
             <fieldset>
                 <legend>Please sign in</legend>
 

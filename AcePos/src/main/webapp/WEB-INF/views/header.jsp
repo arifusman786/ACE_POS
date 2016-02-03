@@ -12,6 +12,6 @@
     </head>
         
     <body>
-        <div style="text-align: right; padding: 30px;"><a href='login'>Login</a></div></h1>       
+        <h1>Welcome to the Hell</h1>     
     </body>
 </html>
