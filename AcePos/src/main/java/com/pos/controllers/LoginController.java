@@ -35,5 +35,10 @@ public class LoginController {
         System.err.println("list of customers = "+list);
         return "main";
     }
+    @RequestMapping(value="bills")
+    public String bills(Model model)
+    {
+        return "bills";
+    }
     
 }
