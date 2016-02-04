@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.pos.controllers;
 
+import com.pos.beans.customer.CustomerBean;
 import com.pos.beans.employee.EmployeeBean;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +19,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author Eyob
  */
-
 @Controller
 public class CustomerControler {
-    
-   
+
+    @RequestMapping(value = "customerUpdate")
+    public String customerUpdate(Model model) {
+        return "customerUpdate";
+    }
+
+    @RequestMapping(value = "/customerAdd", method = RequestMethod.GET)
+    public String customerAdd(@ModelAttribute CustomerBean cbn) {
+        return "customerAdd";
+    }
+
+    @RequestMapping(value = "customerList", method = RequestMethod.GET)
+    public String customerList(Model model) {
+        return "customerList";
+    }
 }

@@ -20,12 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
 
-    @Autowired
-    private CustomerService customerService;
-    
-    @Autowired
-    private EmployeeService employeeService;
-    
+   
     public LoginController() {
         System.out.println("***********************************Controller loaded------------------------------");
 
@@ -34,7 +29,7 @@ public class LoginController {
     @RequestMapping(value = "main")
     public String main(Model model) {
         System.out.println("***********************************Handler called------------------------------");
-        System.err.println("Employees list retrieved: "+employeeService.getAllEmployees());
+        //System.err.println("Employees list retrieved: "+employeeService.getAllEmployees());
         
         //customerService.getCustomerById(1);
 //        Customer cust = new Customer();
@@ -46,6 +41,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
+        System.err.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         return "login";
     }
 

@@ -6,6 +6,7 @@
 package com.pos.controllers;
 
 import com.pos.beans.employee.EmployeeBean;
+import com.pos.beans.customer.CustomerBean;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,18 +22,39 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class EmployeeController {
 
-    @RequestMapping(value = "/employeeadd", method = RequestMethod.GET)
-    public String addBook(@ModelAttribute EmployeeBean emp) {
-        return "employeeadd";
+    @RequestMapping(value = "/employeeAdd", method = RequestMethod.GET)
+    public String employeeAdd(@ModelAttribute EmployeeBean emp) {
+        return "employeeAdd";
     }
 
-    @RequestMapping(value = "employeeList")
-    public String login(Model model) {
+    @RequestMapping(value = "employeeList", method = RequestMethod.GET)
+    public String employeeList(Model model) {
         return "employeeList";
     }
-    
-    @RequestMapping(value = "employeeadd")
-    public String employee(Model model) {
-        return "employeeadd";
+
+    @RequestMapping(value = "success")
+    public String success(Model model) {
+        return "success";
+    }
+
+    @RequestMapping(value = "employeeUpdate")
+    public String employeeUpdate(Model model) {
+        return "employeeUpdate";
+    }
+
+    @RequestMapping(value = "/employees", method = RequestMethod.POST)
+    public String add(@Valid EmployeeBean emp, BindingResult result) {
+        System.err.println("this is ******************" + result);
+        if (result.hasErrors()) {
+            System.err.println("this is -------------------");
+            return "employeeAdd";
+        } else {
+            return "redirect:/employees";
+        }
+    }
+
+    @RequestMapping(value = "/employees", method = RequestMethod.GET)
+    public String getAll(Model model) {
+        return "employeeList";
     }
 }

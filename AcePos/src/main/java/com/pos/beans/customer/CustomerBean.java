@@ -3,18 +3,42 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pos.beans.employee;
-
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.Email;
+package com.pos.beans.customer;
 
 /**
  *
  * @author nizomiddin
  */
-public class EmployeeBean{
+public class CustomerBean{
     private int id;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String email;
+    private String userName;
+    private String password;
+    private String sex;
+    private String address;
+    private int landLinePhone;
+    private int mobilePhone;
+    private String designation;
+    private String reference;
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
 
     public int getId() {
         return id;
@@ -24,18 +48,6 @@ public class EmployeeBean{
         this.id = id;
     }
     
-    private String firstName;
-    private String lastName;
-    @Min(10)
-    private int age;
-    @NotNull
-    @Email
-    private String email;
-    private String userName;
-    private String password;
-    private String sex;
-    private int landLinePhone;
-    private int mobilePhone;
 
     public String getFirstName() {
         return firstName;
@@ -116,7 +128,7 @@ public class EmployeeBean{
     public void setAddress(String address) {
         this.address = address;
     }
-    private String address;
+    
     
 }
 

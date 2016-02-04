@@ -32,10 +32,10 @@
         <property name="suffix" value=".jsp" />
     </bean>
     
-    <bean id="customerService" class="com.pos.service.impl.CustomerServiceImp">
+    <bean id="customerService" class="com.pos.service.impl.CustomerServiceImp" lazy-init="true">
         
     </bean>
-    <bean id="employeeService" class="com.pos.service.impl.EmployeeServiceImpl">
+    <bean id="employeeService" class="com.pos.service.impl.EmployeeServiceImpl" lazy-init="true">
         
     </bean>
 	

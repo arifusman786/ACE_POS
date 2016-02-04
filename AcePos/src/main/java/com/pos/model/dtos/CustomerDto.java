@@ -7,12 +7,15 @@ package com.pos.model.dtos;
 
 import com.pos.model.customers.Customer;
 import com.pos.model.persons.Person;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Arif
  */
 public class CustomerDto {
+
     private Person person;
     private Customer customer;
 
@@ -41,5 +44,5 @@ public class CustomerDto {
     public String toString() {
         return "CustomerDto{" + "person=" + person + ", customer=" + customer + '}';
     }
-    
+
 }
