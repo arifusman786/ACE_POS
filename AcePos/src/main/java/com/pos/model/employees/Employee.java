@@ -31,7 +31,7 @@ public class Employee implements Serializable{
     @Id
     @GeneratedValue
     @Column(name="employeeid")
-    private int employeeID;
+    private int employeeId;
     @Column(name="personid")
     private int personID;
     @Column(name="designation")
@@ -97,12 +97,12 @@ public class Employee implements Serializable{
         this.designation = designation;
     }
 
-    public int getEmployeeID() {
-        return employeeID;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployeeID(int employeeID) {
-        this.employeeID = employeeID;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public int getPersonID() {
@@ -115,7 +115,7 @@ public class Employee implements Serializable{
 
     @Override
     public String toString() {
-        return "Employee{" + "employeeID=" + employeeID + "personID=" + personID + "designation=" + designation + '}';
+        return "Employee{" + "employeeID=" + employeeId + "personID=" + personID + "designation=" + designation + '}';
     }
  
 }

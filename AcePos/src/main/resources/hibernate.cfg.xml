@@ -27,7 +27,7 @@
 
                 <mapping  class="com.pos.model.persons.Person" />
                 <mapping class="com.pos.model.customers.Customer" />
-        
+                <mapping class="com.pos.model.employees.Employee" />
     
     </session-factory>
 </hibernate-configuration>

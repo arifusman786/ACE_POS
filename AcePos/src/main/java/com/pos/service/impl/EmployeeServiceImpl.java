@@ -31,9 +31,11 @@ public class EmployeeServiceImpl implements EmployeeService{
             return null;
         } else {
             System.out.println("Session factory not populated successfully");
-            List<Employee> list = factory.getCurrentSession().createQuery(" from Employees e where e.employeeid="+employeeId).list();
+            factory.getCurrentSession().beginTransaction();
+            List<Employee> list = factory.getCurrentSession().createQuery(" from Employees e where e.employeeId="+employeeId).list();
             if(!list.isEmpty())
                 employee = list.get(0);
+            factory.getCurrentSession().close();
         }
         
         return employee;
@@ -48,7 +50,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         } else {
             factory.getCurrentSession().beginTransaction();
             System.out.println("Session factory not populated successfully");
-            list = factory.getCurrentSession().createQuery(" from Employees").list();
+            list = factory.getCurrentSession().createQuery(" from Employees ").list();
             factory.getCurrentSession().close();
         }
         
