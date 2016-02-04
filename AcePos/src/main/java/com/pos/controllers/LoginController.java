@@ -5,6 +5,8 @@
  */
 package com.pos.controllers;
 
+import com.pos.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
 
+    @Autowired
+    private CustomerService customerService;
+    
     public LoginController() {
         System.out.println("***********************************Controller loaded------------------------------");
 
@@ -25,6 +30,7 @@ public class LoginController {
     @RequestMapping(value = "main")
     public String main(Model model) {
         System.out.println("***********************************Handler called------------------------------");
+        customerService.getCustomerById(1);
 //        Customer cust = new Customer();
 //        //cust.setFirstName("Muhammad");
 //        List<Customer> list = cust.getCustomers();

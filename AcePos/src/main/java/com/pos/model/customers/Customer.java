@@ -68,25 +68,25 @@ public class Customer implements Serializable {
 //      
         return list;
     }
-
-    /*
-     * Gets customer based on the customerId
-     * @param customerId
-     * @param factory
-     * @return Null if not found otherwise customer against customerId
-     */
-    public Customer getCustomerById(int customerId, SessionFactory factory) {
-        Customer customer = null;
-
-        System.out.println("Session factory populated successfully so retrieving customer by id " + customerId);
-        List<Customer> list = factory.getCurrentSession().createQuery(" from Customers as c where c.customerId=" + customerId).list();
-
-        if (!list.isEmpty()) {
-            customer = list.get(0);
-        }
-
-        return customer;
-    }
+//
+//    /*
+//     * Gets customer based on the customerId
+//     * @param customerId
+//     * @param factory
+//     * @return Null if not found otherwise customer against customerId
+//     */
+//    public Customer getCustomerById(int customerId, SessionFactory factory) {
+//        Customer customer = null;
+//
+//        System.out.println("Session factory populated successfully so retrieving customer by id " + customerId);
+//        List<Customer> list = factory.getCurrentSession().createQuery(" from Customers as c where c.customerId=" + customerId).list();
+//
+//        if (!list.isEmpty()) {
+//            customer = list.get(0);
+//        }
+//
+//        return customer;
+//    }
 
     /**
      * Saves an object and returns newly created customer object
@@ -102,7 +102,8 @@ public class Customer implements Serializable {
         } else {
             System.out.println("Session factory not populated successfully");
             factory.getCurrentSession().saveOrUpdate(cust);
-
+             
+            //customer = getCustomerById(cust.getCustomerId(), factory);
 //            }
         }
 

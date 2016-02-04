@@ -9,7 +9,9 @@ import com.pos.model.customers.Customer;
 import com.pos.model.persons.Person;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,19 +29,23 @@ public class Employee implements Serializable{
     public static String PASSWORD="PASSWORD";
 
     @Id
+    @GeneratedValue
+    @Column(name="employeeid")
     private int employeeID;
+    @Column(name="personid")
     private int personID;
+    @Column(name="designation")
     private String designation;
-    protected  SessionFactory factory;
+    
 
-    public List<Employee> getEmployees() {
+    public List<Employee> getEmployees(SessionFactory factory) {
         List<Employee> list = null;
         if (factory == null) {
             System.out.println("Session factory not populated properly");
             return null;
         } else {
             System.out.println("Session factory not populated successfully");
-            list = factory.getCurrentSession().createQuery("* from Employees").list();
+            list = factory.getCurrentSession().createQuery(" from Employees").list();
         }
         
         return list;
@@ -50,14 +56,14 @@ public class Employee implements Serializable{
      * 
      * @return Null if not found otherwise employee against employeeId
      */
-    public Employee getEmployeeById(int employeeId) {
+    public Employee getEmployeeById(int employeeId, SessionFactory factory) {
         Employee employee = null;
         if (factory == null) {
             System.out.println("Session factory not populated properly");
             return null;
         } else {
             System.out.println("Session factory not populated successfully");
-            List<Employee> list = factory.getCurrentSession().createQuery("* from Employees where Employees.employeeId="+employeeId).list();
+            List<Employee> list = factory.getCurrentSession().createQuery(" from Employees e where Employees.employeeid="+employeeId).list();
             if(!list.isEmpty())
                 employee = list.get(0);
         }
@@ -70,16 +76,14 @@ public class Employee implements Serializable{
      * @param emp Object to be saved
      * @return Newly created employee object
      */
-    public Employee saveEmployee(Employee emp){
+    public Employee saveOrUpdateEmployee(Employee emp, SessionFactory factory){
         Employee employee = null;
         if (factory == null) {
             System.out.println("Session factory not populated properly");
             
         } else {
             System.out.println("Session factory not populated successfully");
-            Object employeeObject = factory.getCurrentSession().save(emp);
-            if(employeeObject!=null)
-                employee = (Employee)employeeObject;
+            factory.getCurrentSession().saveOrUpdate(emp);
         }
         
         return employee;

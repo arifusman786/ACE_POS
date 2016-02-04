@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface CustomerService {
     
-    public Customer getCustomerById(Long id);
+    public Customer getCustomerById(int id);
     public void saveCustomer(Customer customer);
     public List<Customer> getAllCustomer();
     public void updateCustomerinfo(Customer customer);
