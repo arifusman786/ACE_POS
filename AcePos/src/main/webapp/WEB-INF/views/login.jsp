@@ -10,24 +10,25 @@
 
 <div>
 
-    <div class="panel-body">
-        <form action="main" method="post">
+    <div>
+        <form  action="postLogin" method="post">
             <fieldset>
                 <legend>Please sign in</legend>
 
-                <form:errors path="*" cssClass="alert alert-danger" element="div" />
+                <form:errors path="*"/>
 
-                <div class="form-group">
-                    <input class="form:input-large" placeholder="User Name"
+                <div>
+                    <input placeholder="User Name"
                            name='username' type="text">
                 </div>
-                <div class="form-group">
-                    <input class=" form:input-large" placeholder="Password"
+                <div>
+                    <input placeholder="Password"
                            name='password' type="password" value="">
                 </div>
-                <input class="btn" type="submit"
+                <input type="submit"
                        value="Login">
             </fieldset>
+                <img src="resources/theme1/1.jpg" style="width: 100%; height: 565px" >
         </form>
     </div>
 </div>
