@@ -31,8 +31,8 @@
         <section>
             <table style="width:100%" border="1" >
                 <tr>
-                    <td style="font-size: large; font-weight: bold">FirstName: </td>
-                    <td style="font-size: large; font-weight: bold">LastName: </td>
+                    <td style="font-size: large; font-weight: bold">First Name: </td>
+                    <td style="font-size: large; font-weight: bold">Last Name: </td>
                     <td style="font-size: large; font-weight: bold">Age: </td>
                     <td style="font-size: large; font-weight: bold">Email: </td>
                     <td style="font-size: large; font-weight: bold">Customer Type </td>

@@ -20,8 +20,8 @@ public class CustomerBean{
     private String sex;
     private String address;
     private int landLinePhone;
-    private int mobilePhone;
-    private String designation;
+    private String mobilePhone;
+    private String typeOfCustomer;
     private String reference;
 
     public String getReference() {
@@ -32,12 +32,12 @@ public class CustomerBean{
         this.reference = reference;
     }
 
-    public String getDesignation() {
-        return designation;
+    public String getTypeOfCustomer() {
+        return typeOfCustomer;
     }
 
-    public void setDesignation(String designation) {
-        this.designation = designation;
+    public void setTypeOfCustomer(String typeOfCustomer) {
+        this.typeOfCustomer = typeOfCustomer;
     }
 
     public int getId() {
@@ -113,11 +113,11 @@ public class CustomerBean{
         this.landLinePhone = landLinePhone;
     }
 
-    public int getMobilePhone() {
+    public String getMobilePhone() {
         return mobilePhone;
     }
 
-    public void setMobilePhone(int mobilePhone) {
+    public void setMobilePhone(int String) {
         this.mobilePhone = mobilePhone;
     }
 

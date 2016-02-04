@@ -41,6 +41,9 @@
     <bean id="personService" class="com.pos.service.impl.PersonServiceImpl">
         
     </bean>	
+    <bean id="itemService" class="com.pos.service.impl.ItemServiceImpl">
+        
+    </bean>	
     <!-- Lets us find resources (.html etc) through the default servlet -->
 		
         

@@ -25,6 +25,8 @@
                 <li><a href='main'><span>Home</span></a></li>
                 <li class='active has-sub'><a href=''><span>Employee</span></a>
                     <ul>
+                        <li><a href='employeeList'><span>List Employees</span></a>
+                        </li>
                         <li><a href='employeeAdd'><span>Add</span></a>
                         </li>
                         <li><a href='employeeList'><span>Update</span></a>
@@ -33,6 +35,8 @@
                 </li>
                 <li class='active has-sub'><a href=''><span>Customer</span></a>
                     <ul>
+                        <li><a href='customerList'><span>List Customers</span></a>
+                        </li>
                         <li><a href='customerAdd'><span>Add</span></a>
                         </li>
                         <li><a href='customerList'><span>Update</span></a>
@@ -49,9 +53,11 @@
                 </li>
                 <li class='active has-sub'><a href='#'><span>Stock</span></a>
                     <ul>
-                        <li><a href='#'><span>Create Item</span></a>
+                        <li><a href='itemList'><span>List Items</span></a>
                         </li>
-                        <li><a href='#'><span>Edit Item</span></a>
+                        <li><a href='itemAdd'><span>Create Item</span></a>
+                        </li>
+                        <li><a href='itemEdit'><span>Edit Item</span></a>
                         </li>
                          <li><a href='#'><span>Add to Stock</span></a>
                         </li>

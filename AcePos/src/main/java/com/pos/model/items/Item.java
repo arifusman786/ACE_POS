@@ -5,6 +5,12 @@
 
 package com.pos.model.items;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import org.hibernate.SessionFactory;
 
 
@@ -12,6 +18,10 @@ import org.hibernate.SessionFactory;
  *
  * @author Arif
  */
+@Entity(name="Items")
+@NamedQueries({
+    @NamedQuery(name="Items.ALL", query = "from Items ")
+})
 public class Item {
     public static String ITEMCODE = "ITEMCODE";
     public static String ITEMNAME = "ITEMNAME";
@@ -26,17 +36,29 @@ public class Item {
     public static String UNITTOTALPRICE = "UNITTOTALPRICE";
     public static String UNITSIZE = "UNITSIZE";
    
+    @Id
+    @GeneratedValue
+    @Column(name="itemcid")
     private int itemCode;
+    @Column(name="itemname")
     private String itemName;
+    
     private float weight;
     private String made;
     private String category;
+    @Column(name="unitgrassprice")
     private float unitGrassPrice;
+    @Column(name="unitgst")
     private float unitGst;
+    @Column(name="measurementunit")
     private String measuremetUnit;
+    @Column(name="unitinterest")
     private float unitInterest;
+    @Column(name="unitdiscount")
     private float unitDiscount;
+    @Column(name="unittotalprice")
     private float unitTotalPrice;
+    @Column(name="unitsize")
     private String unitSize;
 
     public Item(SessionFactory factory) {

@@ -11,6 +11,6 @@
         <title>Section</title>
     </head>
     <body>
-        <div style="color: #3d5799; text-align: center; font-size: 400px; width: 100%; height: 100%">AcePos</div>
+        <div style="color: #3d5799; text-align: center; font-size: 450px; width: 100%; height: 100%">AcePos</div>
     </body>
 </html>

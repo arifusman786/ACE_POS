@@ -17,7 +17,7 @@
             <%@ include file="menu.jsp"%>
         </nav>
         <section>
-            <form:form commandName="customerBean" action="success" method="post">
+            <form:form commandName="customerBean" action="customerAdd" method="post">
                 <fieldset>
                     <legend>Add Customer</legend>
                     <table>
@@ -39,23 +39,23 @@
                         </tr>
                         <tr>
                             <td>Mobile Phone: </td>
-                            <td><form:password path="mobilePhone" /> </td>
+                            <td><form:input path="mobilePhone" /> </td>
                         </tr>
                         <tr>
                             <td>Email: </td>
                             <td><form:input type="text" path="email" /> </td>
                         </tr>
                         <tr>
-                            <td>UserName: </td>
+                            <td>Username: </td>
                             <td><form:input type="text" path="userName" /> </td>
                         </tr>
                         <tr>
                             <td>Password: </td>
-                            <td><form:input type="text" path="password" /> </td>
+                            <td><form:password path="password" /> </td>
                         </tr>
                         <tr>
-                            <td>Designation: </td>
-                            <td><form:input type="text" path="designation" /> </td>
+                            <td>Customer Type </td>
+                            <td><form:input type="text" path="typeOfCustomer" /> </td>
                         </tr>
                         <tr>
                             <td>Reference: </td>

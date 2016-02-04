@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link href="<c:url value="/resources/theme1/css/mainstyle.css" />" rel="stylesheet">
+
         <style>
             table, th, td {
                 border: 1px solid black;
@@ -28,25 +29,24 @@
             <%@ include file="menu.jsp"%>
         </nav>
         <section>
-             <table style="width:100%" border="1" >
-            <tr>
-                   <td>First Name: </td>
-                   <td>Last Name: </td>
-                   <td>Age: </td>
-                   <td>Email: </td>
-                   <td>Sex: </td>
-                   <td>Designation: </td>
-                   
-               </tr>
-                <c:forEach var="employeeDto" items="${employeeList}">
-                    
+            <table style="width:100%" border="1" >
+                <tr>
+                    <td style="font-size: large; font-weight: bold">Item Name</td>
+                    <td style="font-size: large; font-weight: bold">Category Name</td>
+                    <td style="font-size: large; font-weight: bold">Made</td>
+                    <td style="font-size: large; font-weight: bold">Measurement Unit</td>
+                    <td style="font-size: large; font-weight: bold">Unit Discount</td>
+                    <td style="font-size: large; font-weight: bold">Unit Total Price</td>
+                </tr>
+                <c:forEach var="item" items="${itemsList}">
+
                     <tr>
-                        <td>${employeeDto.person.firstName}</td>
-                        <td>${employeeDto.person.lastName}</td>
-                        <td>${employeeDto.person.age}</td>
-                        <td>${employeeDto.person.email}</td>
-                     <td>${employeeDto.person.sex}</td>
-                     <td>${employeeDto.employee.designation}</td>
+                        <td>${item.itemName}</td>
+                        <td>${item.category}</td>
+                        <td>${item.made}</td>
+                        <td>${item.measuremetUnit}</td>
+                        <td>${item.unitDiscount}</td>
+                        <td>${item.unitTotalPrice}</td>
                     </tr>
 
                 </c:forEach>
