@@ -12,7 +12,7 @@
     </head>
         
     <body>
-        <h1>Welcome to the Hell</h1> 
+        <h1 style="color: white">Welcome!</h1> 
         <a href="login" style="text-align: left; color: white;">Log out</a>
     </body>
 </html>

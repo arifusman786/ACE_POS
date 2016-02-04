@@ -6,7 +6,11 @@
 package com.pos.controllers;
 
 import com.pos.beans.employee.EmployeeBean;
-import com.pos.beans.customer.CustomerBean;
+import com.pos.model.dtos.EmployeeDto;
+import com.pos.model.employees.Employee;
+import com.pos.model.persons.Person;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,15 +26,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class EmployeeController {
 
+    public List<EmployeeDto> employeeList1() {
+        List<EmployeeDto> list = new ArrayList<>();
+        Person per = new Person();
+        per.setFirstName("Nick");
+        per.setLastName("Nova");
+        per.setPersonId(0);
+        Employee emp = new Employee();
+        emp.setPersonID(0);
+        emp.setEmployeeId(0);
+        EmployeeDto dt = new EmployeeDto(per, emp);
+        list.add(dt);
+        return list;
+    }
+
+    @RequestMapping(value = "employeeList", method = RequestMethod.GET)
+    public String employeeList(Model model) {
+        System.err.println("-----------customerList handler called" + employeeList1());
+
+        model.addAttribute("employeeList", employeeList1());
+        return "employeeList";
+    }
+
     @RequestMapping(value = "/employeeAdd", method = RequestMethod.GET)
     public String employeeAdd(@ModelAttribute EmployeeBean emp) {
         return "employeeAdd";
     }
 
-    @RequestMapping(value = "employeeList", method = RequestMethod.GET)
-    public String employeeList(Model model) {
-        return "employeeList";
-    }
+
 
     @RequestMapping(value = "success")
     public String success(Model model) {

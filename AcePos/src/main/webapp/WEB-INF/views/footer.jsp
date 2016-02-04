@@ -10,6 +10,6 @@
         <title>Footer</title>
     </head>
     <body>
-        Copyright © AcePos.com
+        <div>Copyright © AcePos.com</div>
     </body>
 </html>

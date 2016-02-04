@@ -27,7 +27,7 @@
                     <ul>
                         <li><a href='employeeAdd'><span>Add</span></a>
                         </li>
-                        <li><a href='employeeUpdate'><span>Update</span></a>
+                        <li><a href='employeeList'><span>Update</span></a>
                         </li>
                     </ul>
                 </li>
@@ -35,7 +35,7 @@
                     <ul>
                         <li><a href='customerAdd'><span>Add</span></a>
                         </li>
-                        <li><a href='customerUpdate'><span>Update</span></a>
+                        <li><a href='customerList'><span>Update</span></a>
                         </li>
                     </ul>
                 </li>
