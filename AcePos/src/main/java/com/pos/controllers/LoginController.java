@@ -5,6 +5,15 @@
  */
 package com.pos.controllers;
 
+import com.pos.beans.employee.EmployeeBean;
+import com.pos.model.employees.Employee;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
 
-   
     public LoginController() {
         System.out.println("***********************************Controller loaded------------------------------");
 
@@ -27,7 +35,7 @@ public class LoginController {
     public String main(Model model) {
         System.out.println("***********************************Handler called------------------------------");
         //System.err.println("Employees list retrieved: "+employeeService.getAllEmployees());
-        
+
         //customerService.getCustomerById(1);
 //        Customer cust = new Customer();
 //        //cust.setFirstName("Muhammad");
@@ -42,4 +50,18 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping(value = "/postLogin", method = RequestMethod.POST)
+    public String postLogin(String username, String password) {
+        boolean isCorrect = isCorrectUsernameAndPassword(username, password);
+        if (isCorrect) {
+
+            return "redirect:/main";
+        } else {
+            return "login";
+        }
+    }
+
+    private boolean isCorrectUsernameAndPassword(String username, String password) {
+        return password.equals("123")&&username.equals("user");
+    }
 }
