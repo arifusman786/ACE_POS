@@ -10,6 +10,7 @@ import com.pos.model.customers.HibernateUtil;
 import com.pos.service.CustomerService;
 import java.util.List;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -54,9 +55,9 @@ public class CustomerServiceImp implements CustomerService{
     public List<Customer> getAllCustomers() {
         List<Customer> list = null;
         System.out.println("Session factory populated successfully");
-
+        factory.getCurrentSession().beginTransaction();
         list = factory.getCurrentSession().createQuery(" from Customers ").list();
-
+        factory.getCurrentSession().close();
 //      
         return list;
     }
@@ -66,8 +67,10 @@ public class CustomerServiceImp implements CustomerService{
     public void saveOrUpdateCustomer(Customer customer) {
         
         System.out.println("Session factory not populated successfully");
+        Transaction tx = factory.getCurrentSession().beginTransaction();
         factory.getCurrentSession().saveOrUpdate(customer);
-        
+        tx.commit();
+        factory.getCurrentSession().close();
     }
     
 }
