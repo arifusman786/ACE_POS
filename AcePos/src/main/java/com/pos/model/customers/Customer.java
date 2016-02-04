@@ -52,22 +52,22 @@ public class Customer implements Serializable {
     public void setPersonId(int personId) {
         this.personId = personId;
     }
-
-    /**
-     *
-     * @param factory
-     * @return
-     */
-    public List<Customer> getCustomers(SessionFactory factory) {
-//        this.factory = HibernateUtil.getSessionFactory();
-        List<Customer> list = null;
-        System.out.println("Session factory populated successfully");
-
-        list = factory.getCurrentSession().createQuery(" from Customers ").list();
-
-//      
-        return list;
-    }
+//
+//    /**
+//     *
+//     * @param factory
+//     * @return
+//     */
+//    public List<Customer> getCustomers(SessionFactory factory) {
+////        this.factory = HibernateUtil.getSessionFactory();
+//        List<Customer> list = null;
+//        System.out.println("Session factory populated successfully");
+//
+//        list = factory.getCurrentSession().createQuery(" from Customers ").list();
+//
+////      
+//        return list;
+//    }
 //
 //    /*
 //     * Gets customer based on the customerId

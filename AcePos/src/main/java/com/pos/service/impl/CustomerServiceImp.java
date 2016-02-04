@@ -48,19 +48,26 @@ public class CustomerServiceImp implements CustomerService{
         return customer;
     }
 
-    @Override
-    public void saveCustomer(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
     @Override
-    public List<Customer> getAllCustomer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Customer> getAllCustomers() {
+        List<Customer> list = null;
+        System.out.println("Session factory populated successfully");
+
+        list = factory.getCurrentSession().createQuery(" from Customers ").list();
+
+//      
+        return list;
     }
 
+
     @Override
-    public void updateCustomerinfo(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void saveOrUpdateCustomer(Customer customer) {
+        
+        System.out.println("Session factory not populated successfully");
+        factory.getCurrentSession().saveOrUpdate(customer);
+        
     }
     
 }

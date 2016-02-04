@@ -6,6 +6,7 @@
 package com.pos.controllers;
 
 import com.pos.service.CustomerService;
+import com.pos.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,9 @@ public class LoginController {
     @Autowired
     private CustomerService customerService;
     
+    @Autowired
+    private EmployeeService employeeService;
+    
     public LoginController() {
         System.out.println("***********************************Controller loaded------------------------------");
 
@@ -30,7 +34,9 @@ public class LoginController {
     @RequestMapping(value = "main")
     public String main(Model model) {
         System.out.println("***********************************Handler called------------------------------");
-        customerService.getCustomerById(1);
+        System.err.println("Employees list retrieved: "+employeeService.getAllEmployees());
+        
+        //customerService.getCustomerById(1);
 //        Customer cust = new Customer();
 //        //cust.setFirstName("Muhammad");
 //        List<Customer> list = cust.getCustomers();

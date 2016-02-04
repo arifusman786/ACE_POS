@@ -35,6 +35,9 @@
     <bean id="customerService" class="com.pos.service.impl.CustomerServiceImp">
         
     </bean>
+    <bean id="employeeService" class="com.pos.service.impl.EmployeeServiceImpl">
+        
+    </bean>
 	
     <!-- Lets us find resources (.html etc) through the default servlet -->
 		

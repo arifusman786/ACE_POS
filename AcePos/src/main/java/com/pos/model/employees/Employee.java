@@ -38,38 +38,38 @@ public class Employee implements Serializable{
     private String designation;
     
 
-    public List<Employee> getEmployees(SessionFactory factory) {
-        List<Employee> list = null;
-        if (factory == null) {
-            System.out.println("Session factory not populated properly");
-            return null;
-        } else {
-            System.out.println("Session factory not populated successfully");
-            list = factory.getCurrentSession().createQuery(" from Employees").list();
-        }
-        
-        return list;
-    }
+//    public List<Employee> getEmployees(SessionFactory factory) {
+//        List<Employee> list = null;
+//        if (factory == null) {
+//            System.out.println("Session factory not populated properly");
+//            return null;
+//        } else {
+//            System.out.println("Session factory not populated successfully");
+//            list = factory.getCurrentSession().createQuery(" from Employees").list();
+//        }
+//        
+//        return list;
+//    }
     
-    /**
-     * Gets customer based on the employeeId
-     * 
-     * @return Null if not found otherwise employee against employeeId
-     */
-    public Employee getEmployeeById(int employeeId, SessionFactory factory) {
-        Employee employee = null;
-        if (factory == null) {
-            System.out.println("Session factory not populated properly");
-            return null;
-        } else {
-            System.out.println("Session factory not populated successfully");
-            List<Employee> list = factory.getCurrentSession().createQuery(" from Employees e where Employees.employeeid="+employeeId).list();
-            if(!list.isEmpty())
-                employee = list.get(0);
-        }
-        
-        return employee;
-    }
+//    /**
+//     * Gets customer based on the employeeId
+//     * 
+//     * @return Null if not found otherwise employee against employeeId
+//     */
+//    public Employee getEmployeeById(int employeeId, SessionFactory factory) {
+//        Employee employee = null;
+//        if (factory == null) {
+//            System.out.println("Session factory not populated properly");
+//            return null;
+//        } else {
+//            System.out.println("Session factory not populated successfully");
+//            List<Employee> list = factory.getCurrentSession().createQuery(" from Employees e where Employees.employeeid="+employeeId).list();
+//            if(!list.isEmpty())
+//                employee = list.get(0);
+//        }
+//        
+//        return employee;
+//    }
     
     /**
      * Saves an object and returns newly created employee object

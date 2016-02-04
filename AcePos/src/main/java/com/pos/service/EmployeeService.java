@@ -3,19 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.pos.service;
-import com.pos.model.customers.Customer;
+
+import com.pos.model.employees.Employee;
 import java.util.List;
 
 /**
  *
- * @author Eyob
+ * @author Arif
  */
-public interface CustomerService {
-    
-    public Customer getCustomerById(int id);
-    public List<Customer> getAllCustomers();
-    public void saveOrUpdateCustomer(Customer customer);
-    
+public interface EmployeeService {
+    public Employee getEmployeeById(int id);
+    public List<Employee> getAllEmployees();
+    public void saveOrUpdateEmployee(Employee employee);
 }
