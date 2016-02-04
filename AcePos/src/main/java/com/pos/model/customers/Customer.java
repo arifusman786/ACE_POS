@@ -14,6 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Arif
  */
 @Entity(name = "Customers")
+@NamedQueries({
+    @NamedQuery(name="Customers.ALL", query = "from Customers ")
+})
 public class Customer implements Serializable {
 
     public static String CUSTOMERID = "CUSTOMERID";
@@ -94,21 +99,21 @@ public class Customer implements Serializable {
      * @param cust Object to be saved
      * @return Newly created customer object
      */
-    public Customer saveOrUpdateCustomer(Customer cust, SessionFactory factory) {
-        Customer customer = null;
-        if (factory == null) {
-            System.out.println("Session factory not populated properly");
-
-        } else {
-            System.out.println("Session factory not populated successfully");
-            factory.getCurrentSession().saveOrUpdate(cust);
-             
-            //customer = getCustomerById(cust.getCustomerId(), factory);
-//            }
-        }
-
-        return customer;
-    }
+//    public Customer saveOrUpdateCustomer(Customer cust, SessionFactory factory) {
+//        Customer customer = null;
+//        if (factory == null) {
+//            System.out.println("Session factory not populated properly");
+//
+//        } else {
+//            System.out.println("Session factory not populated successfully");
+//            factory.getCurrentSession().saveOrUpdate(cust);
+//             
+//            //customer = getCustomerById(cust.getCustomerId(), factory);
+////            }
+//        }
+//
+//        return customer;
+//    }
 
     public int getCustomerId() {
         return customerId;

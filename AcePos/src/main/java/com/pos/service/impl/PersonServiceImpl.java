@@ -5,11 +5,10 @@
  */
 package com.pos.service.impl;
 
-import com.pos.model.customers.Customer;
 import com.pos.model.customers.HibernateUtil;
-import com.pos.service.CustomerService;
+import com.pos.model.persons.Person;
+import com.pos.service.PersonService;
 import java.util.List;
-import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
@@ -17,29 +16,29 @@ import org.hibernate.Transaction;
  *
  * @author Arif
  */
-public class CustomerServiceImp implements CustomerService{
-    private final SessionFactory factory;
+public class PersonServiceImpl implements PersonService{
+    private final SessionFactory factory;   
 
-    public CustomerServiceImp() {
+    public PersonServiceImpl() {
         factory = HibernateUtil.getSessionFactory();
     }
     
     @Override
-    public Customer getCustomerById(int customerId) {
-        Customer customer = null;
+    public Person getPersonById(int personId) {
+        Person person = null;
         try {
             System.out.println("***********************************Service's Handler called------------------------------");
             //factory.getCurrentSession().beginTransaction();
             factory.getCurrentSession().beginTransaction();
             //Customer cust = new Customer();
             //cust.setFirstName("Muhammad");
-            System.out.println("Session factory populated successfully so retrieving customer by id " + customerId);
-            List<Customer> list = factory.getCurrentSession().createQuery(" from Customers as c where c.customerId=" + customerId).list();
+            System.out.println("Session factory populated successfully so retrieving customer by id " + personId);
+            List<Person> list = factory.getCurrentSession().createQuery(" from Persons as p where p.personId=" + personId).list();
 
             if (!list.isEmpty()) {
-                customer = list.get(0);
+                person = list.get(0);
             }
-            System.err.println("Customer retrieved = " + customer);
+            System.err.println("Person retrieved = " + person);
             factory.getCurrentSession().close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,40 +46,28 @@ public class CustomerServiceImp implements CustomerService{
 
         }
 
-        return customer;
+        return person;
     }
 
-
-
     @Override
-    public List<Customer> getAllCustomers() {
-//        List<Customer> list = null;
-//        System.out.println("Session factory populated successfully");
-//        factory.getCurrentSession().beginTransaction();
-//        list = factory.getCurrentSession().createQuery(" from Customers ").list();
-//        factory.getCurrentSession().close();
-////      
-//        return list;
-        List<Customer> list = null;
+    public List<Person> getPersons(Person person) {
+        List<Person> list = null;
         System.out.println("Session factory populated successfully");
         factory.getCurrentSession().beginTransaction();
-        Query query = factory.getCurrentSession().getNamedQuery("Customers.ALL");
-        
-        list = query.list();
+        list = factory.getCurrentSession().createQuery(" from Persons ").list();
         factory.getCurrentSession().close();
 //      
         return list;
     }
 
-
     @Override
-    public void saveOrUpdateCustomer(Customer customer) {
-        
+    public Person saveOrUpdatePerson(Person person) {
         System.out.println("Session factory not populated successfully");
         Transaction tx = factory.getCurrentSession().beginTransaction();
-        factory.getCurrentSession().merge(customer);
+        person = (Person)factory.getCurrentSession().merge(person);
         tx.commit();
         factory.getCurrentSession().close();
+        return person;
     }
     
 }

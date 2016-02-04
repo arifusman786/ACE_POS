@@ -38,7 +38,9 @@
     <bean id="employeeService" class="com.pos.service.impl.EmployeeServiceImpl" lazy-init="true">
         
     </bean>
-	
+    <bean id="personService" class="com.pos.service.impl.PersonServiceImpl">
+        
+    </bean>	
     <!-- Lets us find resources (.html etc) through the default servlet -->
 		
         

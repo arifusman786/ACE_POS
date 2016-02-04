@@ -7,12 +7,12 @@ package com.pos.model.persons;
 
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -33,25 +33,34 @@ public class Person implements Serializable {
      
 
     @Id
+    @GeneratedValue
+    @Column(name="personid")
     private int personId;
+    @Column(name="firstname")
     private String firstName;
+    @Column(name="lastname")
     private String lastName;
+    @Column(name="age")
     private int age;
+    @Column(name="email")
     private String email;
+    @Column(name="username")
     private String userName;
+    @Column(name="password")
     private String password;
+    @Column(name="sex")
     private String sex;
+    @Column(name="phoneno")
     private String phoneNo;
+    @Column(name="mobileno")
     private String mobileNo;
+    @Column(name="address")
     private String address;
 
     public Person() {
         System.err.println("Person's constructor");
     
     }
-
-    
-   
     
     public String getAddress() {
         return address;

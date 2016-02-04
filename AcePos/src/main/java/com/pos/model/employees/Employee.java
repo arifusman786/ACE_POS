@@ -76,18 +76,18 @@ public class Employee implements Serializable{
      * @param emp Object to be saved
      * @return Newly created employee object
      */
-    public Employee saveOrUpdateEmployee(Employee emp, SessionFactory factory){
-        Employee employee = null;
-        if (factory == null) {
-            System.out.println("Session factory not populated properly");
-            
-        } else {
-            System.out.println("Session factory not populated successfully");
-            factory.getCurrentSession().saveOrUpdate(emp);
-        }
-        
-        return employee;
-    }
+//    public Employee saveOrUpdateEmployee(Employee emp, SessionFactory factory){
+//        Employee employee = null;
+//        if (factory == null) {
+//            System.out.println("Session factory not populated properly");
+//            
+//        } else {
+//            System.out.println("Session factory not populated successfully");
+//            factory.getCurrentSession().saveOrUpdate(emp);
+//        }
+//        
+//        return employee;
+//    }
     
     public String getDesignation() {
         return designation;
